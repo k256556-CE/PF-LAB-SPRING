@@ -1,72 +1,62 @@
 #include<stdio.h>
-#include<string.h>
+
 int main(){
-    int vehicle,parking,fee,hours;
-    printf("Main Vehicle Type:\n1.Car\n2.Bike\n3.Bus\n4.Exit\nSelect Option: ");
-    scanf("%d",&vehicle);
-    switch(vehicle){
+    int category, item, quantity, price = 0, total;
+
+    printf("Main Category:\n1.Fast Food\n2.Desi Food\nSelect Option: ");
+    scanf("%d",&category);
+
+    switch(category){
+
         case 1:
-        printf("\nParking Type:\n1.Regular Parking\n2.Vip Parking\n3.Exit\nSelect Option: ");
-        scanf("%d",&parking);
-        switch(parking){
-            case 1: 
-            printf("Enter Time(hours): ");
-            scanf("%d",&hours);
-            fee = hours *50;
-            printf("--Regular Parking Rs 50 per hour--\nYour Parking fee: %d Rs",fee);
+            printf("\nFast Food Menu:\n1.Burger (500 Rs)\n2.Pizza (1200 Rs)\nSelect Item: ");
+            scanf("%d",&item);
+
+            switch(item){
+                case 1:
+                    price = 500;
+                    printf("You selected Burger\n");
+                    break;
+                case 2:
+                    price = 1200;
+                    printf("You selected Pizza\n");
+                    break;
+                default:
+                    printf("Invalid Item");
+                    return 0;
+            }
             break;
-            case 2:
-            printf("Enter Time(hours): ");
-            scanf("%d",&hours);
-            fee = hours *100;
-            printf("--VIP Parking Rs 100 per hour--\nYour Parking fee: %d Rs",fee);
-            break;
-            case 3:
-            return 0;
-            default:
-            printf("Invalid Choice");
-            return 1;
-            break;
-        }
-        break;
+
         case 2:
-        printf("\nParking Type:\n1.Regular Parking\n2.Vip Parking\n3.Exit\nSelect Option:  ");
-        scanf("%d",&parking);
-        switch(parking){
-            case 1: 
-            printf("Enter Time(hours): ");
-            scanf("%d",&hours);
-            fee = hours *20;
-            printf("--Regular Parking Rs 20 per hour--\nYour Parking fee: %d Rs",fee);
+            printf("\nDesi Food Menu:\n1.Biryani (350 Rs)\n2.Karahi (1500 Rs)\nSelect Item: ");
+            scanf("%d",&item);
+
+            switch(item){
+                case 1:
+                    price = 350;
+                    printf("You selected Biryani\n");
+                    break;
+                case 2:
+                    price = 1500;
+                    printf("You selected Karahi\n");
+                    break;
+                default:
+                    printf("Invalid Item");
+                    return 0;
+            }
             break;
-            case 2:
-            printf("Enter Time(hours): ");
-            scanf("%d",&hours);
-            fee = hours *40;
-            printf("--VIP Parking Rs 40 per hour--\nYour Parking fee: %d Rs",fee);
-            break;
-            case 3:
-            return 0;
-            default:
-            printf("Invalid Choice");
-            return 1;
-            break;
-        }
-        break;
-        case 3:
-        printf("Enter Time(hours): ");
-        scanf("%d",&hours);
-        fee = hours *200;
-        printf("--Fixed Rate 200 per hour\nYour Parking fee: %d",fee);
-        break;
-        case 4:
-        return 0;
-        break;
+
         default:
-        printf("Invalid Choice");
-        return 1;
-        break;
+            printf("Invalid Category");
+            return 0;
     }
-    
+
+    printf("Enter Quantity: ");
+    scanf("%d",&quantity);
+
+    total = price * quantity;
+
+    printf("Total Bill: %d Rs", total);
+
     return 0;
 }
